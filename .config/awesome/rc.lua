@@ -316,7 +316,7 @@ globalkeys = gears.table.join(
 
     -- Prompt
     awful.key({ modkey }, "r", 
-        function () awful.screen.focused().mypromptbox:run() end,
+        function () awful.util.spawn("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -496,6 +496,7 @@ awful.rules.rules = {
           "DTA",  -- Firefox addon DownThemAll.
           "copyq",  -- Includes session name in class.
           "pinentry",
+            "latex-ife",
         },
         class = {
           "Arandr",

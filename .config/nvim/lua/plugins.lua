@@ -191,7 +191,7 @@ return require('packer').startup{function(use)
             }
 
             require'nvim-treesitter.configs'.setup {
-                ensure_installed = {"julia", "rust", "lua", "c", "make", "norg", "norg_meta", "norg_table"},
+                ensure_installed = {"julia", "rust", "lua", "c", "make", "norg", "norg_meta", "norg_table", "latex"},
                 highlight = {
                     enable = true,
                 },

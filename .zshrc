@@ -113,3 +113,7 @@ fi
 PATH=$PATH:~/.cargo/bin
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+export PNPM_HOME="/home/jk/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+export BARTIB_FILE="/home/jk/Seafile/Notes/bartib/activities.bartib"

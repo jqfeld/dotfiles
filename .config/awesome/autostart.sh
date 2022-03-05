@@ -12,3 +12,4 @@ run blueman-applet
 run seafile-applet
 run cbatticon
 run light-locker
+run udiskie
