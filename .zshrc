@@ -110,10 +110,9 @@ if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
-PATH=$PATH:~/.cargo/bin
+PATH=$PATH:~/.cargo/bin:~/build/julia/usr/bin
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias v="nvim"
 
-export PNPM_HOME="/home/jk/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
 export BARTIB_FILE="/home/jk/Seafile/Notes/bartib/activities.bartib"

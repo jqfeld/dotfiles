@@ -86,5 +86,5 @@ cmd("au FocusGained,BufEnter * :silent! !")
 R('lsp_config')
 R('plugin_settings')
 R("keymaps")
-R('mathedit')
+-- R('mathedit')
 

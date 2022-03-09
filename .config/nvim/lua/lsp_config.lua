@@ -132,3 +132,7 @@ lsp_setup("texlab", {
     on_attach = on_attach,
     capabilities = create_capabilities(),
 })
+lsp_setup("ltex", {
+    on_attach = on_attach,
+    capabilities = create_capabilities(),
+})
