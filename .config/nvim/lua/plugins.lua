@@ -20,7 +20,6 @@ end
 return require('packer').startup{function(use)
     -- Packer can manage itself as an optional plugin
     use {'wbthomason/packer.nvim'}
-
     -- neorg
     use {
         "nvim-neorg/neorg",
@@ -40,18 +39,18 @@ return require('packer').startup{function(use)
                     ["core.norg.dirman"] = { -- Manage your directories with Neorg
                         config = {
                             workspaces = {
-                                main = "~/Seafile/Neorg/personal",
-                                work = "~/Seafile/Neorg/work",
-                                gtd = "~/Seafile/Neorg/gtd"
+                                main = "~/Seafile/Notes/personal",
+                                work = "~/Seafile/Notes/work",
+                                -- gtd = "~/Seafile/Neorg/gtd"
                             }
                         }
                     },
                     ["core.integrations.telescope"] = {}, -- Enable the telescope module
-                    ["core.gtd.base"] = {
-                        config = {
-                            workspace = "gtd" -- assign the workspace,
-                        },
-                    }, -- Enable GTD module
+                    -- ["core.gtd.base"] = {
+                    --     config = {
+                    --         workspace = "gtd" -- assign the workspace,
+                    --     },
+                    -- }, -- Enable GTD module
                     ["core.norg.completion"] = {
                         config = {
                             engine = "nvim-cmp", -- We current support nvim-compe and nvim-cmp only
@@ -220,11 +219,20 @@ return require('packer').startup{function(use)
 
     use { 'hrsh7th/cmp-nvim-lsp' }
     use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
-    use { 'L3MON4D3/LuaSnip' }
+    use { 'rafamadriz/friendly-snippets' }
     use { 'saadparwaiz1/cmp_luasnip' }
     use { 'hrsh7th/cmp-buffer' }
     use { 'hrsh7th/cmp-path' }
-    use { 'hrsh7th/nvim-cmp' }
+    use { 'hrsh7th/nvim-cmp',
+        config = function ()
+            require('config.cmp')
+        end
+    }
+    use { 'L3MON4D3/LuaSnip',
+        config = function ()
+            require('config.snippets')
+        end
+    }
 
     -- use { 'ray-x/lsp_signature.nvim' }
     -- use { 'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}

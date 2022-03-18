@@ -60,7 +60,6 @@ opt.inccommand="split"
 opt.splitbelow=true
 opt.splitright=true
 
-opt.completeopt="menu,menuone,noselect,noinsert"
 
 opt.cursorline = true
 opt.showmode = true
@@ -83,8 +82,8 @@ cmd("au FocusGained,BufEnter * :silent! !")
 -- augroup END
 -- ]])
 
-R('lsp_config')
+R('config.lsp')
 R('plugin_settings')
-R("keymaps")
+R("config.keymaps")
 -- R('mathedit')
 
