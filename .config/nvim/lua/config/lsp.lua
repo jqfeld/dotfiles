@@ -57,12 +57,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 
 local wk = require("which-key")
 local on_attach = function(client, bufnr)
-    -- local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
     -- Mappings.
     local opts = {buffer=bufnr, prefix="<Leader>", noremap=true, silent=true }
-
     wk.register({
         name = "LSP",
         l = {
@@ -77,13 +75,11 @@ local on_attach = function(client, bufnr)
     wk.register({
         name = "LSP",
         K = { '<cmd>lua vim.lsp.buf.hover()<CR>', "Hover"},
-        ["<C-k>"] = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature help"},
     }, opts
     )
 end
 
 local lspconfig = require("lspconfig")
-
 local function lsp_setup(name, config)
     lspconfig[name].setup(config)
 end
@@ -132,7 +128,26 @@ lsp_setup("texlab", {
     on_attach = on_attach,
     capabilities = create_capabilities(),
 })
-lsp_setup("ltex", {
+
+-- lsp_setup("ltex", {
+--     on_attach = on_attach,
+--     capabilities = create_capabilities(),
+--     settings = {
+--         ltex = {
+--             dictionary = {
+--                 ["de-DE"] = {"Tian",":~/.config/ltex-ls/dictionary.de-DE.txt",},
+--             };
+--             -- disabledRules = {
+--             --     ["de-DE"] = {":./ltex.disabledRules.de-DE.txt"},
+--             -- };
+--             -- hiddenFalsePositives = {
+--             --     ["de-DE"] = {":./ltex.hiddenFalsePositives.de-DE.txt"},
+--             -- };
+--         },
+--     },
+-- })
+
+require("config.ltex-ls").setup({
     on_attach = on_attach,
     capabilities = create_capabilities(),
 })

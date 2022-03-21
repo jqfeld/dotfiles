@@ -32,7 +32,7 @@ opt.autoread = true
 opt.number = true
 opt.encoding = "utf-8"
 opt.visualbell = true
-
+opt.textwidth = 79
 -- indentation
 opt.expandtab = true
 opt.tabstop = 4
@@ -51,7 +51,6 @@ opt.hlsearch = true
 opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
-
 opt.wrap = false
 
 opt.autochdir = true

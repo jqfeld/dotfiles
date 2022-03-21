@@ -67,7 +67,16 @@ return require('packer').startup{function(use)
     use { "kyazdani42/nvim-web-devicons" }
     use { "romgrk/barbar.nvim", requires = {"kyazdani42/nvim-web-devicons"}}
     use { 'nvim-telescope/telescope-ui-select.nvim' }
-
+    use {
+      "folke/zen-mode.nvim",
+      config = function()
+        require("zen-mode").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
+    }
     use {
         'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons'},

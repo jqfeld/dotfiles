@@ -7,7 +7,7 @@ function run {
   fi
 }
 
-run ibus-daemon -Rd
+run ibus-daemon -drxR
 run blueman-applet
 run seafile-applet
 run cbatticon

@@ -66,10 +66,10 @@ wk.register({
 -- windows
 wk.register({
     name = "Windows",
-    ["<C-J>"] = {"<C-W>j", "Down (Window)"},
-    ["<C-K>"] = {"<C-W>k", "Up (Window)"},
-    ["<C-L>"] = {"<C-W>l", "Right (Window)"},
-    ["<C-H>"] = {"<C-W>h", "Left (Window)"},
+    ["<A-J>"] = {"<C-W>j", "Down (Window)"},
+    ["<A-K>"] = {"<C-W>k", "Up (Window)"},
+    ["<A-L>"] = {"<C-W>l", "Right (Window)"},
+    ["<A-H>"] = {"<C-W>h", "Left (Window)"},
     ["<C-A-J>"] = {"<C-W>J", "Move window down"},
     ["<C-A-K>"] = {"<C-W>K", "Move window up"},
     ["<C-A-L>"] = {"<C-W>L", "Move window right"},
@@ -100,8 +100,54 @@ wk.register({
     name = "FTerm",
     ["<A-i>"] = { require("FTerm").toggle, "Toggle FTerm"}
 })
-
 wk.register({
     name = "FTerm",
     ["<A-i>"] = { require("FTerm").toggle, "Toggle FTerm"}
 }, {mode="t"})
+
+
+-- LuaSnip
+
+local luasnip = require('luasnip')
+wk.register({
+    name = "LuaSnip",
+    ["<C-K>"] = {
+            function ()
+                if luasnip.expand_or_jumpable() then
+                    luasnip.expand_or_jump()
+                end
+            end, "LuaSnip: Expand or jump"
+        },
+}, {mode="i"})
+
+
+-- the following does not work... because of mode "s"?
+-- for _,m in pairs({"i", "s"}) do
+--     P(m)
+--     wk.register({
+--         name = "LuaSnip",
+--         ["<C-K>"] = {
+--             function ()
+--                 if luasnip.expand_or_jumpable() then
+--                     luasnip.expand_or_jump()
+--                 end
+--             end, "LuaSnip: Expand or jump"
+--         },
+--         ["<C-J>"] = {
+--             function ()
+--                 if luasnip.jumpable(-1) then
+--                     luasnip.jump(-1)
+--                 end
+--             end, "LuaSnip: Jump back"
+--         },
+--     }, {mode=m})
+-- end
+
+-- vim.keymap.set({"i","s"},
+--     function()
+--         if luasnip.expand_or_jumpable() then
+--             luasnip.expand_or_jump()
+--         end
+--     end,
+-- {silent=true})
+--

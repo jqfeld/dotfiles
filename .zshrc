@@ -115,4 +115,7 @@ PATH=$PATH:~/.cargo/bin:~/build/julia/usr/bin
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias v="nvim"
 
-export BARTIB_FILE="/home/jk/Seafile/Notes/bartib/activities.bartib"
+# export BARTIB_FILE="/home/jk/Seafile/Notes/bartib/activities.bartib"
+source ~/.config/nnn/config.sh
+
+
