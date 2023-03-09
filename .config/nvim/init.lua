@@ -33,6 +33,13 @@ opt.number = true
 opt.encoding = "utf-8"
 opt.visualbell = true
 opt.textwidth = 79
+
+
+-- opt.foldlevel = 20
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldmethod = "expr"
+vim.opt.foldenable = false
+
 -- indentation
 opt.expandtab = true
 opt.tabstop = 4
@@ -84,5 +91,10 @@ cmd("au FocusGained,BufEnter * :silent! !")
 R('config.lsp')
 R('plugin_settings')
 R("config.keymaps")
+R('config.aerial')
 -- R('mathedit')
 
+vim.cmd [[autocmd ColorScheme * highlight! link NormalFloat Normal]]
+vim.cmd [[autocmd ColorScheme * highlight! link FloatBorder Normal]]
+
+opt.guifont= "Fira Code Retina:h12"

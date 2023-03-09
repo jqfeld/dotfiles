@@ -5,20 +5,26 @@ wk.register({
     f = {
         name = "Files", -- optional group name
         f = { function() require("telescope.builtin").find_files() end, "Find file" },
+        h = { function() require("telescope.builtin").help_tags() end, "Find help" },
         p = { function() require("telescope.builtin").find_files({cwd="~/projects"}) end, "Find in projects" },
+        j = { function() require("telescope.builtin").find_files({cwd="~/.julia/dev/"}) end, "Find in julia dev" },
         P = { function() require("telescope.builtin").find_files({cwd="~/.local/share/nvim/site/pack/packer/start"}) end, "Find in plugins" },
+        b = { require("telescope.builtin").current_buffer_fuzzy_find, "Find in current buffer"},
         e = { function() require("telescope").extensions.file_browser.file_browser() end, "File Browser" },
         v = { function() require("telescope.builtin").oldfiles() end, "Find in history" },
         T = { "<CMD>TodoTelescope<CR>", "Telescope Todos"},
+        t = { require("telescope.builtin").treesitter, "Find treesitter" },
+        r = { require("citation").telescope_cite, "Find references" },
         c = {
             name =  "Neovim config",
+            f = { function() require("telescope.builtin").find_files({cwd="~/.config/nvim"}) end, "Find in config"},
             d = {"<CMD>e $MYVIMRC<CR>", "Open config"},
             r = {"<CMD>source $MYVIMRC<CR>", "Reload config"},
         },
     },
     g = {
         name = "Neogit",
-        g = { function () require("neogit").status.create('tab') end, "Open Git status" },
+        g = { function () require("neogit").open('tab') end, "Open Git status" },
 
     },
     w = {
@@ -30,17 +36,11 @@ wk.register({
         p = { function () R('watson'); require('watson').find_plot() end, "Open plot"},
         n = { function () R('watson'); require('watson').find_plot() end, "Open note"},
     },
-    o = {
-        name = "Neorg",
-        g = { "<cmd>Neorg workspace gtd<CR>", "Workspace gtd"},
-        w = { "<cmd>Neorg workspace work<CR>", "Workspace work"},
-        p = { "<cmd>Neorg workspace main<CR>", "Workspace private"},
-    },
     n = {
-        name = "NNN",
-        n = { require("FTerm-nnn").nnn_toggle , "Open NNN" },
-        v = { require("FTerm-nnn").nnn_vs_toggle, "Open NNN (vertical split)"},
-        h = { require("FTerm-nnn").nnn_hs_toggle, "Open NNN (horizontal split)"},
+        name = "NvimTree",
+        n = { "<CMD>NvimTreeToggle<CR>" , "Toggle NvimTree" },
+        -- v = { require("FTerm-nnn").nnn_vs_toggle, "Open NNN (vertical split)" },
+        -- h = { require("FTerm-nnn").nnn_hs_toggle, "Open NNN (horizontal split)" },
     },
     b = {
         name = "Buffer",
@@ -48,8 +48,9 @@ wk.register({
         l = { "<CMD>BufferOrderByLanguage<CR>", "Order by language"},
     },
     m = {
-        name = "Modes",
+        name = "Markdown",
         t = { "<CMD>TableModeToggle<CR>", "Toggle table mode"},
+        p = { "<CMD>MarkdownPreview<CR>", "Markdown preview"},
     },
     h = { "<CMD>noh<CR>", "No highlights" },
 }, { prefix = "<leader>" })
@@ -66,10 +67,10 @@ wk.register({
 -- windows
 wk.register({
     name = "Windows",
-    ["<A-J>"] = {"<C-W>j", "Down (Window)"},
-    ["<A-K>"] = {"<C-W>k", "Up (Window)"},
-    ["<A-L>"] = {"<C-W>l", "Right (Window)"},
-    ["<A-H>"] = {"<C-W>h", "Left (Window)"},
+    ["<A-j>"] = {"<C-W>j", "Down (Window)"},
+    ["<A-k>"] = {"<C-W>k", "Up (Window)"},
+    ["<A-l>"] = {"<C-W>l", "Right (Window)"},
+    ["<A-h>"] = {"<C-W>h", "Left (Window)"},
     ["<C-A-J>"] = {"<C-W>J", "Move window down"},
     ["<C-A-K>"] = {"<C-W>K", "Move window up"},
     ["<C-A-L>"] = {"<C-W>L", "Move window right"},

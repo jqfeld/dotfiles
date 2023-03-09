@@ -46,7 +46,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/mytheme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -351,15 +351,21 @@ globalkeys = gears.table.join(
     -- Locker
     awful.key({ modkey, "Control" }, "l", function () awful.spawn("light-locker-command -l") end,
         {description = "lock screen", group= "awesome"}),
-    -- Launcher
+    -- Launcher for apps
     awful.key({ modkey, "Mod1" }, "b", function () awful.spawn("firefox") end,
         {description = "open Firefox", group= "launcher"}),
     awful.key({ modkey, "Mod1" }, "m", function () awful.spawn("thunderbird") end,
         {description = "open Thunderbird", group= "launcher"}),
-    awful.key({ modkey, "Mod1" }, "l", function () awful.spawn("texmacs") end,
-        {description = "open TeXmacs", group= "launcher"}),
+    awful.key({ modkey, "Mod1" }, "l", function () awful.spawn("logseq") end,
+        {description = "open Logseq", group= "launcher"}),
     awful.key({ modkey, "Mod1" }, "k", function () awful.spawn("kitty -e nnn") end,
-        {description = "open NNN", group= "launcher"})
+        {description = "open NNN", group= "launcher"}),
+    awful.key({ modkey }, "e", function () awful.spawn("pcmanfm") end,
+        {description = "open NNN", group= "launcher"}),
+    awful.key({ modkey, "Mod1" }, "f", function () awful.spawn("flameshot gui") end,
+        {description = "take screenshot", group= "launcher"}),
+    awful.key({ modkey, "Mod1" }, "s", function () awful.spawn.with_shell("~/.config/awesome/rofi-screenlayouts.sh") end,
+        {description = "open screenlayout selection", group= "screen"})
 )
 
 clientkeys = gears.table.join(
@@ -493,10 +499,11 @@ awful.rules.rules = {
     -- Floating clients.
     { rule_any = {
         instance = {
-          "DTA",  -- Firefox addon DownThemAll.
-          "copyq",  -- Includes session name in class.
-          "pinentry",
+            "DTA",  -- Firefox addon DownThemAll.
+            "copyq",  -- Includes session name in class.
+            "pinentry",
             "latex-ife",
+            "pqiv",
         },
         class = {
           "Arandr",
@@ -508,7 +515,8 @@ awful.rules.rules = {
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
-          "xtightvncviewer"},
+          "xtightvncviewer",
+        },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
@@ -521,6 +529,21 @@ awful.rules.rules = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
       }, properties = { floating = true }},
+
+    { rule_any = {
+        instance = {
+            "Makie",
+        },
+        class = {
+          "Makie", -- Makie plots
+        },
+
+        -- Note that the name property shown in xprop might be set slightly after creation of the client
+        -- and the name shown there might not match defined rules here.
+        name = {
+          "Makie", -- Makie plots
+        },
+      }, properties = { floating = true, ontop = true, focus=false, placement=awful.placement.right}},
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
@@ -598,3 +621,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 --
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
+

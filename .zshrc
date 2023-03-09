@@ -110,12 +110,18 @@ if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
-PATH=$PATH:~/.cargo/bin:~/build/julia/usr/bin
+PATH=/opt/flutter/bin:$PATH:~/.cargo/bin:~/.local/share/matlab/bin/:~/.local/share/bolsigminus/:~/.local/bin/:
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias v="nvim"
+alias j="julia"
+alias ls="exa -l"
+alias pluto="julia -e 'using Pluto; Pluto.run()'"
+alias zkw="zk -W ~/Seafile/Notes/work_zk"
+alias zkwe="zkw edit -i"
 
 # export BARTIB_FILE="/home/jk/Seafile/Notes/bartib/activities.bartib"
 source ~/.config/nnn/config.sh
+eval "$(zoxide init zsh)"
 
 

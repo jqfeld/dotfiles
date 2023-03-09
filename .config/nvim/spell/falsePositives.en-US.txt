@@ -1,0 +1,4 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QN2(A) TDLAS\n:nitrogen:TDLAS:electronic states:N2(A): In Jans et al. TDLAS was performed on one rotational line of the transition N2(A, v=1) → N2(B, v=3) with wavelength 673.291 nm.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QTDLAS\nTDLAS on N2(A) (transitions N2(B, v' ← A, v)):\n3 lasers\n764 - 781 nm, detecting v=0,1\n808 - 880 nm, detecting v=2\n1277 - 1342 nm, detecting v=4,5\nsingle pass or double pass depending on signal strength\ntemperature dependence of pressure broadening measured\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QChris Master Thesis\nContinue Yanjuns measurements on CO2 vib.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qexcitation:\nRevive setup\nImprove code for Fermi resonances\\E$"}
