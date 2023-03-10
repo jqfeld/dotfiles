@@ -52,7 +52,7 @@ cmp.setup({
         { name = 'luasnip', keyword_length = 2 },
         { name = 'buffer', keyword_length = 5 },
         { name = 'path'},
-        { name = 'neorg'},
+        -- { name = 'neorg'},
     },
       experimental = {
         native_menu = false,
