@@ -1,2 +1,2 @@
 let maplocalleader = " " 
-set textwidth = 79
+set textwidth=79

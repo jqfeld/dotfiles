@@ -156,40 +156,61 @@ lsp_setup("texlab", {
     capabilities = create_capabilities(),
 })
 
--- lsp_setup("ltex", {
---     on_attach = on_attach,
---     capabilities = create_capabilities(),
---     settings = {
---         ltex = {
---             dictionary = {
---                 ["de-DE"] = {"Tian",":~/.config/ltex-ls/dictionary.de-DE.txt",},
---             };
---             -- disabledRules = {
---             --     ["de-DE"] = {":./ltex.disabledRules.de-DE.txt"},
---             -- };
---             -- hiddenFalsePositives = {
---             --     ["de-DE"] = {":./ltex.hiddenFalsePositives.de-DE.txt"},
---             -- };
---         },
---     },
--- })
-
-require("config.ltex-ls").setup({
+lsp_setup("rust_analyzer", {
     on_attach = on_attach,
     capabilities = create_capabilities(),
 })
 
-local rt = require("rust-tools")
-
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+lsp_setup(
+    "ltex",{
+    capabilities = create_capabilities(),
+    on_attach = function(_, _)
+        -- your other on_attach functions.
+        require("ltex_extra").setup{
+            load_langs = { "de-DE", "en-US" }, -- table <string> : languages for witch dictionaries will be loaded
+            init_check = true, -- boolean : whether to load dictionaries on startup
+            path = nil, -- string : path to store dictionaries. Relative path uses current working directory
+            log_level = "none", -- string : "none", "trace", "debug", "info", "warn", "error", "fatal"
+        }
     end,
-  },
+    settings = {
+        ltex = {
+            -- your settings.
+        }
+    }
 })
--- vim.lsp.set_log_level("TRACE")
 
+
+require("rust-tools").setup(
+    {
+      tools = {
+        runnables = {
+          use_telescope = true,
+        },
+        inlay_hints = {
+          auto = true,
+          show_parameter_hints = false,
+          parameter_hints_prefix = "",
+          other_hints_prefix = "",
+        },
+      },
+
+      -- all the opts to send to nvim-lspconfig
+      -- these override the defaults set by rust-tools.nvim
+      -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
+      server = {
+        -- on_attach is a callback called when the language server attachs to the buffer
+        on_attach = on_attach,
+        settings = {
+          -- to enable rust-analyzer settings visit:
+          -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+          ["rust-analyzer"] = {
+            -- enable clippy on save
+            checkOnSave = {
+              command = "clippy",
+            },
+          },
+        },
+      },
+    }
+)

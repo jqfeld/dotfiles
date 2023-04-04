@@ -23,7 +23,7 @@ local cmd = vim.api.nvim_command
 
 G.nvim_config_root = vim.fn.stdpath('config')
 G.mapleader = " "
-G.vimtex_view_method = 'zathura'
+G.vimtex_view_method = 'sioyek'
 
 opt.mouse = "a"
 
@@ -80,7 +80,7 @@ cmd("colorscheme gruvbox-material")
 
 opt.clipboard = "unnamedplus"
 
-cmd("au FocusGained,BufEnter * :silent! !")
+-- cmd("au FocusGained,BufEnter * :silent! !")
 -- cmd([[augroup HTMLTemplates
 --     autocmd!
 --     autocmd BufReadPre,FileReadPre *.hbs set ft=html
@@ -92,6 +92,11 @@ R('config.lsp')
 R('plugin_settings')
 R("config.keymaps")
 R('config.aerial')
+R('config.telescope')
+R('config.cmp')
+R('config.iron')
+R('config.snippets')
+
 -- R('mathedit')
 
 vim.cmd [[autocmd ColorScheme * highlight! link NormalFloat Normal]]

@@ -543,7 +543,11 @@ awful.rules.rules = {
         name = {
           "Makie", -- Makie plots
         },
-      }, properties = { floating = true, ontop = true, focus=false, placement=awful.placement.right}},
+      }, properties = { 
+            floating = true, 
+            ontop = true, 
+            focus=false, 
+            placement=awful.placement.top_right}},
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
