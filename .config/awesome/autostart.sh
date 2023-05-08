@@ -10,7 +10,7 @@ function run {
 run ibus-daemon -drxR
 run nm-applet
 run blueman-applet
-run seafile-applet
+# run seafile-applet
 # run syncthing
 run cbatticon
 run light-locker

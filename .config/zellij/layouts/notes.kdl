@@ -1,0 +1,12 @@
+layout {
+  pane split_direction="vertical" {
+    pane name="Notes" {
+      command "nvim"
+      args  "/home/jk/Work/Notes/index.norg"
+    }
+    pane name="Todos" {
+      command "nvim"
+      args  "/home/jk/Todos/todo.txt" "/home/jk/Todos/done.txt"
+    }
+  }
+}

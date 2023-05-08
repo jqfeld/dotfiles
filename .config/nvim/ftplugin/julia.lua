@@ -11,7 +11,7 @@ iron.setup {
         close_window_on_exit = true,
         repl_definition = {
             julia = {
-                command = {"julia", "-O3", "--project=@."}
+                command = {"julia","--threads=8", "-O3", "--project=@."}
             },
         },
         repl_open_cmd = "rightbelow split",

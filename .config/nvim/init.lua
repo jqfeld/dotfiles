@@ -23,7 +23,6 @@ local cmd = vim.api.nvim_command
 
 G.nvim_config_root = vim.fn.stdpath('config')
 G.mapleader = " "
-G.vimtex_view_method = 'sioyek'
 
 opt.mouse = "a"
 
@@ -42,9 +41,9 @@ vim.opt.foldenable = false
 
 -- indentation
 opt.expandtab = true
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.softtabstop = 2
 -- opt.smartindent = true
 
 cmd("filetype plugin indent on")
@@ -87,15 +86,19 @@ opt.clipboard = "unnamedplus"
 --     autocmd BufReadPre,FileReadPre *.tera set ft=html
 -- augroup END
 -- ]])
-
+--
+vim.filetype.add({
+  filename = {
+    ["todo.txt"] = "todotxt",
+    ["done.txt"] = "todotxt",
+  },
+})
 R('config.lsp')
-R('plugin_settings')
 R("config.keymaps")
-R('config.aerial')
 R('config.telescope')
 R('config.cmp')
-R('config.iron')
 R('config.snippets')
+R('scratch')
 
 -- R('mathedit')
 
@@ -103,3 +106,7 @@ vim.cmd [[autocmd ColorScheme * highlight! link NormalFloat Normal]]
 vim.cmd [[autocmd ColorScheme * highlight! link FloatBorder Normal]]
 
 opt.guifont= "Fira Code Retina:h12"
+
+
+
+

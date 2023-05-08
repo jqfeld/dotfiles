@@ -116,12 +116,17 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias v="nvim"
 alias j="julia"
 alias ls="exa -l"
-alias pluto="julia -e 'using Pluto; Pluto.run()'"
-alias zkw="zk -W ~/Seafile/Notes/work_zk"
-alias zkwe="zkw edit -i"
+# alias pluto="julia -e 'using Pluto; Pluto.run()'"
+# alias zkw="zk -W ~/Seafile/Notes/work_zk"
+# alias zkwe="zkw edit -i"
+alias jplot="julia --project=/home/jk/build/jplot --sysimage=/home/jk/build/jplot/sysimage.so --startup-file=no -L /home/jk/build/jplot/startup.jl"
+alias todo="v ~/Todos/todo.txt ~/Todos/done.txt"
 
 # export BARTIB_FILE="/home/jk/Seafile/Notes/bartib/activities.bartib"
 source ~/.config/nnn/config.sh
 eval "$(zoxide init zsh)"
 
+export TODO_FILE="/home/jk/Todos/todo.txt"
+export DONE_FILE="/home/jk/Todos/done.txt"
 
+# eval "$(zellij setup --generate-auto-start zsh)"

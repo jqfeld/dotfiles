@@ -1,4 +1,4 @@
-vim.opt.completeopt="menu,menuone,noselect"
+vim.opt.completeopt = "menu,menuone,noselect"
 
 -- Setup nvim-cmp.
 local has_words_before = function()
@@ -9,58 +9,63 @@ end
 local luasnip = require("luasnip")
 local cmp = require('cmp')
 
+
 cmp.setup({
-    snippet = {
-      expand = function(args)
-        -- For `luasnip` user.
-        require('luasnip').lsp_expand(args.body)
+  snippet = {
+    expand = function(args)
+      -- For `luasnip` user.
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  mapping = {
+    ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+    ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-e>"] = cmp.mapping.abort(),
+    ["<c-y>"] = cmp.mapping(
+      cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+      },
+      { "i", "c" }
+    ),
+    ["<M-y>"] = cmp.mapping(
+      cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+      },
+      { "i", "c" }
+    ),
+
+    ["<C-space>"] = cmp.mapping {
+      i = cmp.mapping.complete(),
+      c = function(
+        _ --[[fallback]]
+      )
+        if cmp.visible() then
+          if not cmp.confirm { select = true } then
+            return
+          end
+        else
+          cmp.complete()
+        end
       end,
     },
-    mapping = {
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
-        -- luasnip stuff
-        ["<C-n>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            -- elseif luasnip.expand_or_jumpable() then
-            --     luasnip.expand_or_jump()
-            elseif has_words_before() then
-                cmp.complete()
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
+    ["<tab>"] = cmp.config.disable,
+  },
 
-        ["<C-p>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            -- elseif luasnip.jumpable(-1) then
-            --     luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-    },
-    sources = {
-        { name = 'nvim_lsp' },
-        { name = 'nvim_lsp_signature_help' },
-      -- For luasnip user.
-        { name = 'luasnip', keyword_length = 2 },
-        { name = 'buffer', keyword_length = 5 },
-        { name = 'path'},
-        -- { name = 'neorg'},
-    },
-      experimental = {
-        native_menu = false,
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
+    -- For luasnip user.
+    { name = 'luasnip',                keyword_length = 2 },
+    { name = 'buffer',                 keyword_length = 5 },
+    { name = 'path' },
+    { name = 'neorg' },
+  },
 
-        ghost_text = true,
-      },
 })
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } } ) )
-
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))

@@ -9,6 +9,7 @@ require('telescope').setup {
     },
     file_browser = {
       theme = "ivy",
+      respect_gitignore=false,
       mappings = {
         ["i"] = {
           -- your custom insert mode mappings
