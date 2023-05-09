@@ -2,7 +2,7 @@ layout {
   pane split_direction="vertical" {
     pane name="Notes" {
       command "nvim"
-      args  "/home/jk/Work/Notes/index.norg"
+      args "-c" "Neorg workspace work"
     }
     pane name="Todos" {
       command "nvim"

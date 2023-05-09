@@ -20,43 +20,11 @@ end
 return require('packer').startup { function(use)
   -- Packer can manage itself as an optional plugin
   use { 'wbthomason/packer.nvim' }
-  use {
-    'arnarg/todotxt.nvim',
-    -- requires = {'MunifTanjim/nui.nvim'},
-  }
 
-  use { 'edluffy/hologram.nvim',
-    config = function()
-      require('hologram').setup {
-        auto_display = true -- WIP automatic markdown image display, may be prone to breaking
-      }
-    end
-
-  }
   -- Style plugins
   use { "sainnhe/gruvbox-material" }
   use { "kyazdani42/nvim-web-devicons" }
-  -- use {
-  --   'kyazdani42/nvim-tree.lua',
-  --   requires = {
-  --     'kyazdani42/nvim-web-devicons', -- optional, for file icons
-  --   },
-  --   tag = 'nightly',                  -- optional, updated every week. (see issue #1193)
-  --   config = function()
-  --     require("nvim-tree").setup({
-  --       filters = {
-  --         dotfiles = true,
-  --       },
-  --     })
-  --   end,
-  -- }
   use { "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
-  use {
-    "folke/zen-mode.nvim",
-    config = function()
-      require("zen-mode").setup()
-    end
-  }
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
@@ -100,13 +68,9 @@ return require('packer').startup { function(use)
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } }
   }
-
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
   use { "nvim-telescope/telescope-file-browser.nvim" }
-
   use { 'nvim-telescope/telescope-ui-select.nvim' }
-
   use { 'nvim-telescope/telescope-symbols.nvim' }
 
   use {
@@ -140,12 +104,6 @@ return require('packer').startup { function(use)
         },
         border = 'rounded'
       })
-    end
-  }
-
-  use { "ggandor/leap.nvim",
-    config = function()
-      require('leap').add_default_mappings()
     end
   }
 
