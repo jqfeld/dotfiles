@@ -10,6 +10,7 @@ First install dependencies:
 - Editor: `neovim`
 - Terminal multiplexer: `zellij`
 - File explorer: `xplr`
+- Misc: `zoxide`
 
 ### Clone repo
 Add alias to .zshrc:
