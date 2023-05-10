@@ -5,7 +5,7 @@ if status is-interactive
   # Machine specific paths go into config.d/path.fish (gitignore)
   set PATH $PATH $HOME/.cargo/bin
 
-  set -x SSH_AUTH_SOCK "(gpgconf --list-dirs agent-ssh-socket)"
+  set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
   zoxide init fish | source
   starship init fish | source
 
