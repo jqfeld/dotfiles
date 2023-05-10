@@ -33,3 +33,7 @@ Checkout:
 ```fish
 config checkout
 ```
+To ignore untracked files:
+```fish
+config config --local status.showUntrackedFiles no
+```
