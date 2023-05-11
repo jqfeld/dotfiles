@@ -58,6 +58,7 @@ cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
+    { name = 'nvim_lua' },
     -- For luasnip user.
     { name = 'luasnip',                keyword_length = 2 },
     { name = 'buffer',                 keyword_length = 5 },

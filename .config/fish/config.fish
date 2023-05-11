@@ -9,6 +9,8 @@ if status is-interactive
   zoxide init fish | source
   starship init fish | source
 
+  set -U fish_greeting
+
   alias v nvim
 
   alias rs "source ~/.config/fish/config.fish"

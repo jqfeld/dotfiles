@@ -23,6 +23,7 @@ local cmd = vim.api.nvim_command
 
 G.nvim_config_root = vim.fn.stdpath('config')
 G.mapleader = " "
+G.maplocalleader = ","
 
 opt.mouse = "a"
 
@@ -35,9 +36,9 @@ opt.textwidth = 79
 
 
 -- opt.foldlevel = 20
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldmethod = "expr"
-vim.opt.foldenable = false
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldmethod = "expr"
+opt.foldenable = false
 
 -- indentation
 opt.expandtab = true
@@ -45,6 +46,9 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
 -- opt.smartindent = true
+
+-- conceal
+opt.conceallevel=1
 
 cmd("filetype plugin indent on")
 

@@ -58,10 +58,6 @@ wk.register({
     name = "Neorg",
     w = { "<CMD>Neorg workspace work<CR>", "Open Neorg for work" },
     p = { "<CMD>Neorg workspace personal<CR>", "Open Neorg for personal life" },
-    j = {
-      t = { "<CMD>Neorg journal today<CR>", "Open journal of today" },
-      o = { "<CMD>Neorg journal toc<CR>", "Open journal overview" },
-    }
   },
   b = {
     name = "Buffer",

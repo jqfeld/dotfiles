@@ -10,13 +10,20 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
+local synIDattr = vim.fn.synIDattr
+local synIDtrans = vim.fn.synIDtrans
+local hlID = vim.fn.hlID
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-  vim.api.nvim_set_hl(0, "DiagnosticVirtualText" .. type, { link = hl })
-end
 
+  --get fg and bg of highlight group
+  local hlfg = synIDattr(synIDtrans(hlID(hl)), "fg")
+  local hlbg = synIDattr(synIDtrans(hlID(hl)), "bg")
+  vim.api.nvim_set_hl(0, "DiagnosticVirtualText" .. type,
+    { fg = hlfg, bg = hlbg, italic = true })
+end
 
 local function create_capabilities()
   -- local capabilities = vim.lsp.protocol.make_client_capabilities()
