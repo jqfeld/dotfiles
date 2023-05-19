@@ -157,16 +157,6 @@ lsp_setup("texlab", {
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
 
-    local opts = { buffer = bufnr, prefix = "<Leader>", noremap = true, silent = true }
-    wk.register({
-      name = "LSP",
-      l = {
-        name = "LSP",
-        b = { "<CMD>TexlabBuild<CR>", "Build LaTeX file" },
-        v = { "<CMD>TexlabForward<CR>", "SyncTeX forward search" },
-      }
-    }, opts
-    )
   end,
   capabilities = create_capabilities(),
   on_init = function(client)

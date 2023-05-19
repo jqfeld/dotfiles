@@ -24,43 +24,13 @@ return require('packer').startup { function(use)
   -- Style plugins
   use { "sainnhe/gruvbox-material" }
   use { "kyazdani42/nvim-web-devicons" }
-  use { "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function()
-      require('lualine').setup {
-        options = {
-          theme = 'gruvbox',
-          section_separators = { left = '', right = '' },
-          component_separators = { left = '', right = '' },
-          icons_enabled = true,
-        },
-        sections = {
-          lualine_a = { { 'mode', upper = true } },
-          lualine_b = { { 'branch', icon = '' } },
-          lualine_c = { { 'filename', file_status = true } },
-          lualine_x = { 'encoding', 'fileformat', 'filetype' },
-          lualine_y = { 'progress' },
-          lualine_z = { 'location' },
-        },
-        inactive_sections = {
-          lualine_a = {},
-          lualine_b = {},
-          lualine_c = { 'filename' },
-          lualine_x = { 'location' },
-          lualine_y = {},
-          lualine_z = {}
-        },
-      }
-    end
-  }
+  use { 'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' } }
 
   use {
     "folke/which-key.nvim",
     config = function()
-      require("which-key").setup {
-      }
+      require("which-key").setup {}
     end
   }
 
@@ -77,9 +47,6 @@ return require('packer').startup { function(use)
     "folke/todo-comments.nvim",
     config = function()
       require("todo-comments").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
         highlight = {
           comments_only = false,
         },
@@ -92,39 +59,11 @@ return require('packer').startup { function(use)
     end
   }
 
-  use {
-    "numToStr/FTerm.nvim",
-    config = function()
-      require("FTerm").setup({
-        dimensions = {
-          height = 0.8,
-          width = 0.8,
-          x = 0.5,
-          y = 0.5
-        },
-        border = 'rounded'
-      })
-    end
-  }
+  use { "numToStr/FTerm.nvim" }
 
   use {
     'stevearc/aerial.nvim',
     requires = { { 'folke/which-key.nvim' } },
-    config = function()
-      require('aerial').setup({
-        close_on_select = true,
-        on_attach = function(bufnr)
-          local wk = require("which-key")
-
-          wk.register({
-            name = "LSP",
-            l = {
-              o = { "<CMD>:AerialToggle float<CR>", "Outline" },
-            }
-          }, { prefix = "<Leader>" })
-        end
-      })
-    end
   }
 
   use { 'p00f/nvim-ts-rainbow' }
@@ -137,30 +76,6 @@ return require('packer').startup { function(use)
 
   use { 'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = function()
-      local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-
-      require 'nvim-treesitter.configs'.setup {
-        ensure_installed = { "julia", "rust", "lua", "c", "make", "latex", "markdown", "todotxt" },
-        highlight = {
-          enable = true,
-        },
-        indent = {
-          enable = true,
-        },
-        incremental_selection = {
-          enable = true,
-        },
-        rainbow = {
-          enable = true,
-          -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-          extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-          max_file_lines = nil, -- Do not enable for files with more than n lines, int
-          -- colors = {}, -- table of hex strings
-          -- termcolors = {} -- table of colour name strings
-        },
-      }
-    end
   }
   use { 'nvim-treesitter/playground' }
 
@@ -184,16 +99,21 @@ return require('packer').startup { function(use)
   use { 'hrsh7th/cmp-buffer' }
   use { 'hrsh7th/cmp-path' }
   use { 'hrsh7th/nvim-cmp',
-    config = function()
-      require('config.cmp')
-    end
+    requires = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lsp-signature-help' },
+      { 'hrsh7th/cmp-nvim-lua' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' } }
   }
   use { 'L3MON4D3/LuaSnip',
     config = function()
-      require('config.snippets')
+      require('luasnip').config.setup({
+        enable_autosnippets = true,
+      })
     end
   }
-  -- use { 'rafamadriz/friendly-snippets' }
 
   use {
     'numToStr/Comment.nvim',
@@ -228,48 +148,16 @@ return require('packer').startup { function(use)
     },
   }
 
-  use {
-    "someone-stole-my-name/yaml-companion.nvim",
-    requires = {
-      { "neovim/nvim-lspconfig" },
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope.nvim" },
-    },
-    config = function()
-      require("telescope").load_extension("yaml_schema")
-    end,
-  }
-
   -- Neorg
   use {
     "nvim-neorg/neorg",
-    config = function()
-      require('neorg').setup {
-        load = {
-          ["core.defaults"] = {},  -- Loads default behaviour
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = {      -- Manages Neorg workspaces
-            config = {
-              workspaces = {
-                work = "~/Work/Notes",
-                personal = "~/Notes",
-              },
-            },
-          },
-          ["core.completion"] = {
-            config = {
-              engine = "nvim-cmp",
-            },
-          },
-        },
-      }
-    end,
     run = ":Neorg sync-parsers",
     requires = "nvim-lua/plenary.nvim",
   }
 
   -- Dev projects
-  use { 'jqfeld/watson.nvim',
+  use {
+    'jqfeld/watson.nvim',
     requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-lua/popup.nvim' },
       { 'nvim-telescope/telescope.nvim' } },
   }

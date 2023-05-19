@@ -271,9 +271,9 @@ globalkeys = gears.table.join(
     { description = "swap with next client by index", group = "client" }),
   awful.key({ modkey, "Shift" }, "k", function() awful.client.swap.byidx(-1) end,
     { description = "swap with previous client by index", group = "client" }),
-  awful.key({ modkey, "Control" }, "j", function() awful.screen.focus_relative(1) end,
+  awful.key({ modkey}, ".", function() awful.screen.focus_relative(1) end,
     { description = "focus the next screen", group = "screen" }),
-  awful.key({ modkey, "Control" }, "k", function() awful.screen.focus_relative(-1) end,
+  awful.key({ modkey}, ",", function() awful.screen.focus_relative(-1) end,
     { description = "focus the previous screen", group = "screen" }),
   awful.key({ modkey, }, "u", awful.client.urgent.jumpto,
     { description = "jump to urgent client", group = "client" }),
@@ -362,24 +362,24 @@ globalkeys = gears.table.join(
     awful.util.spawn("xbacklight -inc 15")
   end),
   -- Locker
-  awful.key({ modkey, "Control" }, "l", function() awful.spawn("light-locker-command -l") end,
+  awful.key({}, "XF86AudioMedia", function() awful.spawn("light-locker-command -l") end,
     { description = "lock screen", group = "awesome" }),
 
   -- Launcher for apps
-  awful.key({ modkey }, "b", function() awful.spawn("firefox") end,
+  awful.key({ modkey, "Mod1" }, "b", function() awful.spawn("firefox") end,
     { description = "open Browser", group = "launcher" }),
   awful.key({ modkey, "Mod1" }, "m", function() awful.spawn("thunderbird") end,
     { description = "open Thunderbird", group = "launcher" }),
   awful.key({ modkey, "Mod1" }, "l", function() awful.spawn("logseq") end,
     { description = "open Logseq", group = "launcher" }),
-  awful.key({ modkey, "Mod1" }, "k", function() awful.spawn("kitty -e nnn") end,
+  awful.key({ modkey, "Mod1" }, "k", function() awful.spawn("alacritty -e xplr") end,
     { description = "open NNN", group = "launcher" }),
-  awful.key({ modkey }, "e", function() awful.spawn("pcmanfm") end,
+  awful.key({ modkey, "Mod1"}, "e", function() awful.spawn("pcmanfm") end,
     { description = "open Files", group = "launcher" }),
-  awful.key({ modkey, "Mod1" }, "f", function() awful.spawn("flameshot gui") end,
-    { description = "take screenshot", group = "launcher" }),
-  awful.key({ modkey, "Control" }, "s", function() awful.spawn.with_shell("~/.config/awesome/rofi-screenlayouts.sh") end,
-    { description = "open screenlayout selection", group = "screen" })
+  awful.key({ modkey, "Mod1" }, "s", function() awful.spawn.with_shell("~/.config/awesome/rofi-screenlayouts.sh") end,
+    { description = "open screenlayout selection", group = "screen" }),
+  awful.key({ }, "Print", function() awful.spawn("flameshot gui") end,
+    { description = "take screenshot", group = "launcher" })
 )
 
 clientkeys = gears.table.join(

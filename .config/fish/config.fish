@@ -17,10 +17,13 @@ if status is-interactive
 
   alias config "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
   alias v "nvim"
+  alias vj "nvim --listen /run/user/1000/nvim.julia.0"
   alias j "julia"
+  alias jp "julia --project=@."
   alias ls "exa -l"
-  alias todo "v ~/Todos/todo.txt ~/Todos/done.txt"
-  alias notes "zellij --layout notes --session notes"
+  alias todos "v ~/Todos/todo.txt ~/Todos/done.txt"
+  alias nw "v -c ':Neorg workspace work'"
+  alias np "v -c ':Neorg workspace personal'"
   alias x xplr
   function xz
     z (xplr --print-pwd-as-result)
@@ -29,7 +32,10 @@ if status is-interactive
     v (xplr --print-pwd-as-result)
   end
 
+
   set -x TODO_FILE "/home/jk/Todos/todo.txt"
   set -x DONE_FILE "/home/jk/Todos/done.txt"
+
+
 
 end

@@ -40,6 +40,7 @@ opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldmethod = "expr"
 opt.foldenable = false
 
+
 -- indentation
 opt.expandtab = true
 opt.tabstop = 2
