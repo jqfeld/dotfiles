@@ -2,29 +2,6 @@ local wk = require("which-key")
 
 -- with leader
 wk.register({
-  f = {
-    name = "Find", -- optional group name
-    f = { function() require("telescope.builtin").find_files() end, "Find file" },
-    h = { function() require("telescope.builtin").help_tags() end, "Find help" },
-    b = { function() require("telescope.builtin").buffers() end, "Find buffer" },
-    B = { require("telescope.builtin").current_buffer_fuzzy_find, "Find in current buffer" },
-    e = { function() require("telescope").extensions.file_browser.file_browser() end, "File Browser" },
-    v = { function() require("telescope.builtin").oldfiles() end, "Find in history" },
-    t = { require("telescope.builtin").treesitter, "Find treesitter" },
-    T = { "<CMD>TodoTelescope<CR>", "Find todo comments" },
-    -- My custom ones
-    -- r = { require("citation").telescope_cite, "Find references" },
-    p = { function() require("telescope.builtin").find_files({ cwd = "~/projects" }) end, "Find in projects" },
-    j = { function() require("telescope.builtin").find_files({ cwd = "~/.julia/dev/" }) end, "Find in julia dev" },
-    P = { function() require("telescope.builtin").find_files({ cwd = "~/.local/share/nvim/site/pack/packer/start" }) end,
-      "Find in plugins" },
-    c = {
-      name = "Neovim config",
-      f = { function() require("telescope.builtin").find_files({ cwd = "~/.config/nvim" }) end, "Find in config" },
-      d = { "<CMD>e $MYVIMRC<CR>", "Open config" },
-      r = { "<CMD>source $MYVIMRC<CR>", "Reload config" },
-    },
-  },
 
   g = {
     name = "Neogit",
