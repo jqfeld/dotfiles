@@ -1,26 +1,17 @@
 # Import color scheme
 import: 
-  # - ~/.config/alacritty/gruvbox_light.yaml
-  - ~/.config/alacritty/gruvbox_material.yaml
-
+  # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+  - ~/.config/alacritty/gruvbox_light.yaml
+  # - ~/.config/alacritty/gruvbox_material.yaml
 
 
 font:
   size: 11
 
   normal:
-    family: Hack Nerd Font
+    family: Hack Nerd Font Mono
     style: Retina
 
-  # bold:
-    # family: FiraCode Nerd Font
-    # style: Bold
-
-  # italic:
-    # family: monospace
-    # style: Italic
-
-  # bold_italic:
-    # family: monospace
-    # style: SemiBold
+key_bindings:
+  - { key: N,   mods: Control|Shift, action: SpawnNewInstance }
 

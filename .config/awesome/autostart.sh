@@ -16,6 +16,7 @@ run cbatticon
 run light-locker
 run udiskie
 run picom
+run todoist
+sleep 1
+run volumeicon
 
-# run feh --bg-scale ~/.config/awesome/wallpaper_rainy.jpg
-# run conky

@@ -15,12 +15,12 @@ theme.wallpaper = theme_path .. "background.jpg"
 theme.font      = "sans 9"
 
 -- {{{ Colors
-theme.fg_normal  = "#ACADAB"
-theme.fg_focus   = "#CECECD"
-theme.fg_urgent  = "#010405"
-theme.bg_normal  = "#030905"
-theme.bg_focus   = "#464B46"
-theme.bg_urgent  = "#CECECD"
+theme.fg_normal  = "#dfbf8e"
+theme.fg_focus   = "#dfbf8e"
+theme.fg_urgent  = "#dfbf8e"
+theme.bg_normal  = "#282828"
+theme.bg_focus   = "#665c54"
+theme.bg_urgent  = "#928374"
 theme.bg_systray = theme.bg_normal
 -- }}}
 
@@ -28,14 +28,13 @@ theme.bg_systray = theme.bg_normal
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(2)
 theme.border_normal = theme.bg_normal
--- theme.border_focus  = "#464B46"
-theme.border_focus  = "#98971A"
-theme.border_marked = "#CC9393"
+theme.border_focus  = "#a9b665"
+theme.border_marked = "#89b482"
 -- }}}
 
 -- {{{ Titlebars
-theme.titlebar_bg_focus  = "#464B46"
-theme.titlebar_bg_normal = "#030905"
+theme.titlebar_bg_focus  = theme.bg_focus
+theme.titlebar_bg_normal = theme.bg_normal
 -- }}}
 
 -- There are other variable sets

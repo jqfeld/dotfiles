@@ -324,7 +324,11 @@ globalkeys = gears.table.join(
 
   -- Prompt
   awful.key({ modkey }, "r",
-    function() awful.util.spawn("rofi -show run") end,
+    function() awful.util.spawn([[rofi -show combi -modes combi -combi-modes "window,drun,run"]]) end,
+    { description = "run prompt", group = "launcher" }),
+
+  awful.key({ modkey }, "c",
+    function() awful.util.spawn([[rofi -show ssh]]) end,
     { description = "run prompt", group = "launcher" }),
 
   awful.key({ modkey }, "x",
@@ -376,9 +380,23 @@ globalkeys = gears.table.join(
     { description = "open NNN", group = "launcher" }),
   awful.key({ modkey, "Mod1"}, "e", function() awful.spawn("pcmanfm") end,
     { description = "open Files", group = "launcher" }),
-  awful.key({ modkey, "Mod1" }, "s", function() awful.spawn.with_shell("~/.config/awesome/rofi-screenlayouts.sh") end,
-    { description = "open screenlayout selection", group = "screen" }),
+  awful.key(
+    { modkey, "Mod1" }, "s",
+    function() 
+      awful.spawn.with_shell("~/.config/awesome/rofi-screenlayouts.sh")
+    end,
+    { description = "open screenlayout selection", group = "screen" }
+  ),
+  awful.key(
+    { modkey, "Mod1" }, "c",
+    function()
+      awful.spawn.with_shell("~/.config/awesome/rofi-notes-capture.sh")
+    end,
+    { description = "open notes capture", group = "launcher" }
+  ),
   awful.key({ }, "Print", function() awful.spawn("flameshot gui") end,
+    { description = "take screenshot", group = "launcher" }),
+  awful.key({ modkey}, "Print", function() awful.spawn("peek") end,
     { description = "take screenshot", group = "launcher" })
 )
 
@@ -600,10 +618,10 @@ awful.rules.rules = {
     properties = { tag = "2web", switchtotag = true }
   },
   -- Set Zathura to always map on the tag named "8mail" on screen 1.
-  {
-    rule = { class = "Zathura" },
-    properties = { tag = "6read", switchtotag = true }
-  },
+  -- {
+  --   rule = { class = "Zathura" },
+  --   properties = { tag = "6read", switchtotag = true }
+  -- },
   -- Set Zothero to always map on the tag named "8mail" on screen 1.
   {
     rule = { class = "Zotero" },

@@ -11,20 +11,24 @@ if status is-interactive
 
   set -U fish_greeting
 
-  alias v nvim
-
   alias rs "source ~/.config/fish/config.fish"
 
   alias config "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
   alias v "nvim"
   alias vj "nvim --listen /run/user/1000/nvim.julia.0"
-  alias j "julia"
-  alias jp "julia --project=@."
+  alias vl "nvim --listen /run/user/1000/nvim.latex.0"
+  alias vf "nvim ~/.config/fish/config.fish"
+  alias j "julia -t auto"
+  alias jp "julia -t auto --project=@."
   alias ls "exa -l"
-  alias todos "v ~/Todos/todo.txt ~/Todos/done.txt"
+
+  # Notes
   alias nw "v -c ':Neorg workspace work'"
   alias np "v -c ':Neorg workspace personal'"
+
+  # File browsers
   alias x xplr
+  alias jo "joshuto"
   function xz
     z (xplr --print-pwd-as-result)
   end
@@ -33,9 +37,13 @@ if status is-interactive
   end
 
 
-  set -x TODO_FILE "/home/jk/Todos/todo.txt"
-  set -x DONE_FILE "/home/jk/Todos/done.txt"
-
-
+  function fish_greeting
+    # sleep 0.01
+    # echo (set_color -o red)Urgent tasks(set_color normal)
+    # tada urgent
+    # echo
+    # echo (set_color -o yellow)Important tasks(set_color normal)
+    # tada important
+  end
 
 end
