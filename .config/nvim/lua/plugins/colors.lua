@@ -1,11 +1,21 @@
 return {
-  { 'shaunsingh/nord.nvim' },
-  { 'folke/tokyonight.nvim' },
-  { 'EdenEast/nightfox.nvim' },
   {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
+    opts = {
+      dim_inactive = {
+        enabled = true,   -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.15, -- percentage of the shade to apply to the inactive window
+      },
+    },
+    integrations = {
+      headlines = true,
+      neogit = true,
+      symbols_outline = true,
+      which_key = true,
+    }
   },
   -- color html colors
   {

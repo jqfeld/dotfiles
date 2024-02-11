@@ -71,6 +71,7 @@ return {
           section_separators = '',
           component_separators = '',
           globalstatus = true,
+          -- theme = "catpuccin"
         },
         sections = {
           lualine_a = { 'mode' },
@@ -82,27 +83,18 @@ return {
           lualine_z = { 'location' }
         },
         extensions = { 'nvim-tree' },
+        priority = 1001,
       }
     end
   },
 
-  {
-    'nanozuki/tabby.nvim',
-    config = function()
-      require 'tabby.tabline'.use_preset('tab_only')
-    end
-  },
-
   -- {
-  --   'dstein64/nvim-scrollview',
+  --   'nanozuki/tabby.nvim',
   --   config = function()
-  --     require('scrollview').setup({
-  --       current_only = true,
-  --     })
+  --     require 'tabby.tabline'.use_preset('tab_only')
   --   end
   -- },
 
-  -- { 'RRethy/vim-illuminate' }, -- highlight current word
 
   -- filetree
   {
@@ -124,6 +116,9 @@ return {
         diagnostics         = {
           enable = true,
         },
+        filters             = {
+          dotfiles = true,
+        }
       }
     end
   },
@@ -142,16 +137,16 @@ return {
   },
 
   -- terminal
-  {
-    "akinsho/toggleterm.nvim",
-    version = '*',
-    config = function()
-      require("toggleterm").setup {
-        open_mapping = [[<c-\>]],
-        direction = 'float',
-      }
-    end
-  },
+  -- {
+  --   "akinsho/toggleterm.nvim",
+  --   version = '*',
+  --   config = function()
+  --     require("toggleterm").setup {
+  --       open_mapping = [[<c-\>]],
+  --       direction = 'float',
+  --     }
+  --   end
+  -- },
   -- show diagnostics list
   {
     "folke/trouble.nvim",
@@ -160,30 +155,13 @@ return {
     end
   },
 
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require("indent_blankline").setup {
-        show_current_context = true,
-        show_current_context_start = false,
-      }
-    end
-  },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
   {
     'lukas-reineke/headlines.nvim',
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
       require("headlines").setup {
-        quarto = {
-          query = vim.treesitter.query.parse(
-            "markdown",
-            [[
-                (fenced_code_block) @codeblock
-            ]]),
-          codeblock_highlight = "CodeBlock",
-          treesitter_language = "markdown",
-        },
       }
     end
   }

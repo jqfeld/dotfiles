@@ -12,6 +12,7 @@ if status is-interactive
   set -U fish_greeting
 
   alias rs "source ~/.config/fish/config.fish"
+  source ~/.config/fish/conf.d/*
 
   alias config "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
   alias v "nvim"
@@ -23,18 +24,11 @@ if status is-interactive
   alias ls "exa -l"
 
   # Notes
-  alias nw "v -c ':Neorg workspace work'"
-  alias np "v -c ':Neorg workspace personal'"
+  # alias nw "v -c ':Neorg workspace work'"
+  # alias np "v -c ':Neorg workspace personal'"
 
   # File browsers
-  alias x xplr
   alias jo "joshuto"
-  function xz
-    z (xplr --print-pwd-as-result)
-  end
-  function xv
-    v (xplr --print-pwd-as-result)
-  end
 
 
   function fish_greeting
@@ -47,3 +41,8 @@ if status is-interactive
   end
 
 end
+
+set -x BAT_THEME "Catppuccin-mocha"
+
+# Created by `pipx` on 2023-09-01 08:06:28
+set PATH $PATH /home/jk/.local/bin

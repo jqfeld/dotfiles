@@ -11,12 +11,12 @@ run ibus-daemon -drxR
 run nm-applet
 run blueman-applet
 # run seafile-applet
-# run syncthing
+run syncthing
 run cbatticon
 run light-locker
 run udiskie
+sleep 1
 run picom
 run todoist
-sleep 1
 run volumeicon
 
