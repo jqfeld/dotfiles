@@ -1,0 +1,118 @@
+@import "mocha.css";
+
+* {
+  font-family: FiraCode Nerd Font;
+  font-size: 16px;
+  min-height: 0;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+  margin: 3px 3px;
+}
+
+#workspaces {
+  border-radius: 1rem;
+  margin: 3px;
+  background-color: @surface0;
+  margin-left: 1rem;
+}
+
+#workspaces button {
+  color: @lavender;
+  border-radius: 1rem;
+  padding: 0.3rem 0.6rem;
+}
+
+#workspaces button label {
+  font-size: 14px;
+}
+
+#workspaces button.active {
+  color: @sky;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+  border-radius: 1rem;
+}
+
+#tray,
+#idle_inhibitor,
+#keyboard-state,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+
+#clock {
+  color: @blue;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 1rem;
+}
+
+#battery {
+  color: @green;
+  margin: 1rem 1rem;
+}
+
+#keyboard-state {
+  /* margin: 1rem; */
+}
+
+#language {
+  margin: 1rem 1rem;
+}
+
+#idle_inhibitor {
+  margin: 1rem 1rem;
+}
+
+#idle_inhibitor.activated {
+  color: @green;
+  margin: 1rem 1rem;
+}
+
+#idle_inhibitor.deactivated {
+  color: @red;
+  margin: 1rem 1rem;
+}
+
+#battery.charging {
+  color: @green;
+  margin: 1rem 1rem;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+  margin: 1rem 1rem;
+}
+
+#network {
+  color: @green;
+  margin: 1rem 1rem;
+}
+
+#backlight {
+  color: @yellow;
+  margin: 1rem 1rem;
+}
+
+#backlight, #battery {
+  border-radius: 0;
+  margin: 1rem 1rem;
+}
+
+#pulseaudio {
+  color: @maroon;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+
+#tray {
+  margin-right: 1rem;
+  border-radius: 1rem;
+}
