@@ -5,6 +5,8 @@ if status is-interactive
   # Machine specific paths go into config.d/path.fish (gitignore)
   set PATH $PATH $HOME/.cargo/bin
 
+  set -x EDITOR nvim
+
   set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
   zoxide init fish | source
   starship init fish | source
@@ -12,9 +14,9 @@ if status is-interactive
   set -U fish_greeting
 
   alias rs "source ~/.config/fish/config.fish"
-  source ~/.config/fish/conf.d/*
+  # source ~/.config/fish/conf.d/*
 
-  alias config "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+  alias dotfiles "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
   alias v "nvim"
   alias vj "nvim --listen /run/user/1000/nvim.julia.0"
   alias vl "nvim --listen /run/user/1000/nvim.latex.0"

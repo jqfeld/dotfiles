@@ -183,7 +183,7 @@ wk.register(
     },
     j = {
       name = "journal",
-      j = { function() require'misc.journal'.open_entry({path="~/Notes/journal"}) end, "personal journal"},
+      j = { function() require'misc.journal'.open_entry({path="~/Notes/Journal"}) end, "personal journal"},
     }
   }, { mode = 'n', prefix = '<leader>' }
 
