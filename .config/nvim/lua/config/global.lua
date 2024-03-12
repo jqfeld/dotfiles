@@ -7,7 +7,8 @@ vim.opt.number = true                  -- show linenumbers
 vim.opt.mouse = 'a'                    -- enable mouse
 vim.opt.mousefocus = true
 vim.opt.clipboard:append 'unnamedplus' -- use system clipboard
-vim.opt.textwidth = 79
+-- vim.opt.textwidth = 79
+vim.opt.colorcolumn = {80,}
 vim.opt.wrap = false
  
 vim.opt.timeoutlen = 400               -- until which-key pops up

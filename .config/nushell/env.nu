@@ -102,6 +102,12 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 
 $env.EDITOR = nvim
 
+$env.MOZ_ENABLE_WAYLAND = 1
+
+$env.SSH_AUTH_SOCK = (gpgconf --list-dirs agent-ssh-socket)
+
+source ~/.config/nushell/tokens.nu
+
 # configure Starship
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu

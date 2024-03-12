@@ -151,7 +151,7 @@ $env.config = {
     }
 
     rm: {
-        always_trash: false # always act as if -t was given. Can be overridden with -p
+        always_trash: true # always act as if -t was given. Can be overridden with -p
     }
 
     table: {
@@ -838,14 +838,21 @@ $env.config = {
         }
     ]
 }
-alias dotfiles = /usr/bin/git --git-dir=/home/jk/.dotfiles/ --work-tree=/home/jk/
-
-use '/home/jk/.config/broot/launcher/nushell/br' *
-use ~/.cache/starship/init.nu
-# use ~/.config/nushell/zoxide.nu
-
 let fish_completer = {|spans|
     fish --command $'complete "--do-complete=($spans | str join " ")"'
     | $"value(char tab)description(char newline)" + $in
     | from tsv --flexible --no-infer
 }
+
+
+use '/home/jk/.config/broot/launcher/nushell/br' *
+use ~/.cache/starship/init.nu
+source ~/.config/nushell/zoxide.nu
+
+# custom completions from https://github.com/nushell/nu_scripts/tree/main/custom-completions
+source ~/.config/nushell/completions/rg/rg-completions.nu
+source ~/.config/nushell/completions/zellij/zellij-completions.nu
+
+source ~/.config/nushell/aliases.nu
+
+
