@@ -38,7 +38,7 @@ imap(",", ",<c-g>u")
 imap(".", ".<c-g>u")
 imap(";", ";<c-g>u")
 
-nmap('Q', '<Nop>')
+-- nmap('Q', '<Nop>')
 
 
 
@@ -95,6 +95,7 @@ wk.register(
     --   i = { ':split term://ipython<cr>', 'new ipython terminal' },
     --   j = { ':split term://julia<cr>', 'new julia terminal' },
     -- },
+    b = {":NvimTreeToggle<cr>", "Toggle NvimTree"},
     v = {
       name = 'vim',
       t = { toggle_light_dark_theme, 'switch theme' },
@@ -223,7 +224,7 @@ wk.register({
   ['<m-I>'] = { '<esc>o```{python}<cr>```<esc>O', "r code chunk" },
 }, { mode = 'i' })
 
-require "which-key".register(
+wk.register(
   {
     b = { "<CMD>TexlabBuild<CR>", "Texlab build" },
     v = { "<CMD>TexlabForward<CR>", "Texlab forward search" }

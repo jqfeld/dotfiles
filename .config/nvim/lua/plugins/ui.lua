@@ -55,12 +55,12 @@ return {
       telescope.load_extension('fzf')
       telescope.load_extension('ui-select')
       telescope.load_extension('file_browser')
-      telescope.load_extension('dap')
+      -- telescope.load_extension('dap')
     end
   },
   { 'nvim-telescope/telescope-ui-select.nvim' },
   { 'nvim-telescope/telescope-fzf-native.nvim',  build = 'make' },
-  { 'nvim-telescope/telescope-dap.nvim' },
+  -- { 'nvim-telescope/telescope-dap.nvim' },
   { 'nvim-telescope/telescope-file-browser.nvim' },
 
   {
@@ -100,7 +100,7 @@ return {
   {
     'nvim-tree/nvim-tree.lua',
     keys = {
-      { '<c-b>', ':NvimTreeToggle<cr>' },
+      -- { '<c-b>', ':NvimTreeToggle<cr>' },
     },
     config = function()
       require 'nvim-tree'.setup {
@@ -120,7 +120,8 @@ return {
           dotfiles = true,
         }
       }
-    end
+    end,
+    lazy = false,
   },
   -- show keybinding help window
   { 'folke/which-key.nvim' },

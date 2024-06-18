@@ -10,22 +10,23 @@
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu",
     "memory", "temperature", "backlight", "keyboard-state", "battery", "clock", "tray"],
     // Modules configuration
-    // "hyprland/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "warp-on-scroll": false,
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "󰈹",
+            "7": "",
+            "8": "󰈹",
+            "6": "",
+            "10": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,

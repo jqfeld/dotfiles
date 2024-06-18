@@ -3,6 +3,10 @@ import = ["/home/jk/.config/alacritty/catppuccin/catppuccin_mocha.toml"]
 
 shell = "/usr/bin/nu"
 
+# [shell]
+# program = "/home/jk/.cargo/bin/zellij"
+# args = ["-l", "welcome"]
+
 [font]
 size = 12
 
