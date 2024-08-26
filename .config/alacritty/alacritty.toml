@@ -1,7 +1,8 @@
 # import = ["/home/jk/.config/alacritty/catppuccin/catppuccin_latte.toml"]
 import = ["/home/jk/.config/alacritty/catppuccin/catppuccin_mocha.toml"]
 
-shell = "/usr/bin/nu"
+# shell = "/usr/bin/nu"
+shell = "/usr/bin/fish"
 
 # [shell]
 # program = "/home/jk/.cargo/bin/zellij"

@@ -186,5 +186,5 @@ source ~/.config/nushell/aliases.nu
 
 
 
-fastfetch
+^fastfetch
 
