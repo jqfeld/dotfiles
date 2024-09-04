@@ -24,10 +24,10 @@ if status is-interactive
   alias j "julia -t auto"
   alias jp "julia -t auto --project=@."
   alias ls "exa -l"
+  alias gitroot "git rev-parse --show-toplevel"
+  alias projectname "basename (gitroot)"
+  alias zp "zellij a (projectname)"
 
-  # Notes
-  # alias nw "v -c ':Neorg workspace work'"
-  # alias np "v -c ':Neorg workspace personal'"
 
   # File browsers
   alias jo "joshuto"
