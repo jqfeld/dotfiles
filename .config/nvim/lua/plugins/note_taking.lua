@@ -104,6 +104,8 @@ return {
     }
   },
 
+  {"jannis-baum/vivify.vim"},
+
   {
     "toppair/peek.nvim",
     event = { "VeryLazy" },

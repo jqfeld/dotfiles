@@ -95,6 +95,8 @@ return {
   --   end
   -- },
 
+  -- show keybinding help window
+  { 'folke/which-key.nvim' },
 
   -- filetree
   {
@@ -120,11 +122,12 @@ return {
           dotfiles = true,
         }
       }
+      require"which-key".add({
+        {"<Leader>b", ":NvimTreeToggle<CR>", desc = "Toggle NvimTree"}
+      })
     end,
     lazy = false,
   },
-  -- show keybinding help window
-  { 'folke/which-key.nvim' },
 
   {
     'simrat39/symbols-outline.nvim',

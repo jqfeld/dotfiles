@@ -86,16 +86,6 @@ end
 --show up in the popup as well
 wk.register(
   {
-    -- c = {
-    --   name = 'code',
-    --   c = { ':SlimeConfig<cr>', 'slime config' },
-    --   n = { ':split term://$SHELL<cr>', 'new terminal' },
-    --   r = { ':split term://R<cr>', 'new R terminal' },
-    --   p = { ':split term://python<cr>', 'new python terminal' },
-    --   i = { ':split term://ipython<cr>', 'new ipython terminal' },
-    --   j = { ':split term://julia<cr>', 'new julia terminal' },
-    -- },
-    b = {":NvimTreeToggle<cr>", "Toggle NvimTree"},
     v = {
       name = 'vim',
       t = { toggle_light_dark_theme, 'switch theme' },
@@ -137,7 +127,6 @@ wk.register(
       q = { "<cmd>Telescope quickfix<cr>", "quickfix" },
       l = { "<cmd>Telescope loclist<cr>", "loclist" },
       j = { "<cmd>Telescope jumplist<cr>", "marks" },
-      p = { "project" },
     },
     h = {
       name = 'help/debug/conceal',
@@ -155,37 +144,10 @@ wk.register(
     },
     g = {
       name = "git",
-      -- c = { ":GitConflictRefresh<cr>", 'conflict' },
       g = { ":Neogit<cr>", "neogit" },
-      -- s = { ":Gitsigns<cr>", "gitsigns" },
-      -- pl = { ":Octo pr list<cr>", "gh pr list" },
-      -- pr = { ":Octo review start<cr>", "gh pr review" },
       wc = { ":lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>", "worktree create" },
       ws = { ":lua require('telescope').extensions.git_worktree.git_worktrees()<cr>", "worktree switch" },
-      d = {
-        name = 'diff',
-        o = { ':DiffviewOpen<cr>', 'open' },
-        c = { ':DiffviewClose<cr>', 'close' },
-      },
-      -- b = {
-      --   name = 'blame',
-      --   b = { ':GitBlameToggle<cr>', 'toggle' },
-      --   o = { ':GitBlameOpenCommitURL<cr>', 'open' },
-      --   c = { ':GitBlameCopyCommitURL<cr>', 'copy' },
-      -- }
     },
-    -- w = {
-    --   name = 'write',
-    --   w = { ":w<cr>", "write" },
-    -- },
-    x = {
-      name = 'execute',
-      x = { ':w<cr>:source %<cr>', 'file' }
-    },
-    j = {
-      name = "journal",
-      j = { function() require'misc.journal'.open_entry({path="~/Notes/Journal"}) end, "personal journal"},
-    }
   }, { mode = 'n', prefix = '<leader>' }
 
 )
